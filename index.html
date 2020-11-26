@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FrappiFlix</title>
+    <!-- google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- VUE js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  </head>
+  <body>
+
+<div class="app" id="app">
+  <div class="search">
+    <input type="text"
+    placeholder="Cerca..."
+    v-model ="query"
+    @keyup.enter="search"
+    >
+
+    <button @click="search">search</button>
+
+  </div>
+
+  <div class="movies-container">
+    <div v-for="result in results" class="movie">
+
+      <div class="cover">
+        <img
+        v-if="result.poster_path != 'null'"
+        :src="`https://image.tmdb.org/t/p/w342${result.poster_path}`"
+        :alt="result.poster_path"
+        class="poster"
+        >
+        <img
+        v-else
+        alt="no_image_available"
+        src="./img/no-image-available.jpg"
+        :alt="result.poster_path"
+        class="without-poster poster"
+        >
+      </div>
+
+      <ul>
+        <li>
+          <span>Titolo: </span>
+          <span v-if="result.title">
+            {{ result.title }}
+          </span>
+<!-- La condizione per le Series che spacca di brutto-->
+          <span v-if="result.name">
+            {{ result.name }}
+          </span>
+        </li>
+        <li>
+          <span>Titolo Originale: </span>
+          <span v-if="result.original_name">{{ result.original_name }}</span>
+        </li>
+        <li>
+          <span>Vote: </span>
+          <i v-for="star in getVote(result.vote_average)"
+          class="fas fa-star"></i>
+        </li>
+        <li>
+          <span>Lingua </span>
+          <img v-if="isRightFlag(result.original_language)"
+          class="flag"
+           :src="getFlag(result.original_language)"
+           :alt="result.original_language"
+           >
+          <span v-else>{{ result.original_language }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.js'></script>
+<script src="javascript.js"></script>
+  </body>
+</html>
