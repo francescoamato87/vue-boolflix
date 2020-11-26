@@ -2,6 +2,9 @@
 
 body{
   font-family: 'Lato', sans-serif;
+  background-image: url(./img/netflix-christmas.jpg);
+  background-size: 1780px;
+
 }
 
 .flag{
@@ -10,4 +13,11 @@ body{
 
 .poster{
   width:200px;
+}
+
+.teaser{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
 }
