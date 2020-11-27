@@ -69,7 +69,5 @@ const app = new Vue({
       getFlag(source) {
         return `./img/${source}.png`; // interpolazione
       },
-
-
     }
 });

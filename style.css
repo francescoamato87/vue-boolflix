@@ -1,4 +1,8 @@
-
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
 
 body{
   font-family: 'Lato', sans-serif;
@@ -6,6 +10,78 @@ body{
   background-size: 1780px;
 
 }
+/* HEADER */
+.head-menu{
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  }
+
+.head-menu li{
+  list-style: none;
+
+}
+.head-menu li a{
+  color: white;
+  text-decoration: none;
+}
+
+.menu-right{
+  display: flex;
+  align-items:center;
+  justify-content: flex-end;
+  width: 80%;
+}
+
+.menu-right ul {
+  list-style: none;
+}
+
+
+.menu-right li{
+  margin-right: 30px;
+}
+
+
+.with-dropdown{
+  position: relative;
+}
+
+.with-dropdown:hover > a {
+  color: red;
+}
+
+.dropdown-menu{
+  position:absolute;
+  top: 30px;
+  left:50px;
+  transform: translateX(-50%);
+  background-color: #F5F5F5;
+  display: none;
+  padding: 15px;
+}
+
+.dropdown-menu > li > a{
+  font-size: 12px;
+}
+
+ .dropdown-menu > li > a:hover{
+   color: #000;
+ }
+
+.btn{
+  padding: 15px;
+  background: transparent;
+  border: 2px solid white;
+  width: 200px;
+}
+
+.btn li{
+  color: white;
+  font-size: 24px;
+  margin: auto;
+}
+/* MAIN */
 
 .flag{
   width: 30px;
@@ -19,5 +95,17 @@ body{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 10px 20px;
 
+}
+
+.movies-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+}
+.movie li{
+  color: white;
+  font-size: 12px;
 }
