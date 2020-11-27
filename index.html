@@ -75,13 +75,30 @@
 
 <div class="app" id="app">
   <div class="search">
-    <input type="text"
+
+    <img class="logo-netflix" src="./img/N.png" alt="">
+
+    <select
+    v-model="actualGenre"
+    @change="filterGenre"
+    class="query-select"
+    name="select">
+      <option value="">seleziona genere</option>
+      <option value="movies">movies</option>
+      <option value="tvSeries">tvSeries</option>
+    </select>
+
+    <input
+    class="query-search"
+    type="text"
     placeholder="Cerca..."
     v-model ="query"
     @keyup.enter="search"
     >
 
-    <button @click="search">search</button>
+    <button
+    class="btn-search"
+     @click="search">search</button>
 
   </div>
 
@@ -90,7 +107,7 @@
 
       <div class="cover">
         <img
-        v-if="result.poster_path != 'null'"
+        v-if="result.poster_path != null"
         :src="`https://image.tmdb.org/t/p/w342${result.poster_path}`"
         :alt="result.poster_path"
         class="poster"

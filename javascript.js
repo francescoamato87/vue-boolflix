@@ -6,13 +6,17 @@ const app = new Vue({
   data:{
     query: '',
     results: [],
-    availableFlags: ['it', 'en']
+    availableFlags: ['it', 'en'],
+    movies:[],
+    tvSeries:[],
+    actualGenre: ''
   },
+
 
   methods: {
     // Ricerca risultati
     search() {
-
+      this.results = [];
       // films
 
       axios.get('https://api.themoviedb.org/3/search/movie', {
@@ -29,7 +33,10 @@ const app = new Vue({
         // Mile 1
         // this.results = response.data.results;
         // Mile 2
-        this.results = this.results.concat(response.data.results);
+        // this.results = this.results.concat(response.data.results);
+        // console.log(this.results);
+        this.movies = response.data.results;
+        this.filterGenre();
       })
       .catch(error => {
         console.log(error);
@@ -47,8 +54,10 @@ const app = new Vue({
       .then(response => {
           // console.log(response.data.results);
           // consegna dati all'HTML
-          this.results = this.results.concat(response.data.results);
-
+          // this.results = this.results.concat(response.data.results);
+          // console.log(this.results);
+          this.tvSeries = response.data.results;
+          this.filterGenre();
       })
       .catch(error => {
         console.log(error);
@@ -69,5 +78,19 @@ const app = new Vue({
       getFlag(source) {
         return `./img/${source}.png`; // interpolazione
       },
+
+      filterGenre(){
+        // Se ho selezionato movies inserire in results l'array movies
+        // Se ho selezionato tvSeries inserire in results l'array tvSeries
+        // Se ho selezionato vuoto inserire in results il concat tra movies e tvSeries
+        if (this.actualGenre === 'movies') {
+          this.results = this.movies;
+        } else if (this.actualGenre === 'tvSeries') {
+          this.results = this.tvSeries;
+        } else {
+          this.results = this.movies.concat(this.tvSeries);
+        }
+      }
+
     }
 });
