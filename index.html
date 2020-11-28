@@ -23,26 +23,26 @@
 
       <ul class="menu-right">
         <li><a href="#">Abbonamenti</a></li>
-        <li><a href="#">Catalogo</a></li>
-        <li class="with-dropdown"><a href="#">Ultime Ucite</a>
+        <li><a href="#">Novità & Ultime Uscite</a></li>
+        <li class="with-dropdown"><a href="#">Catalogo</a>
 
         <ul class= "dropdown-menu">
-          <li><a href="#">Trasferimenti di denaro</a></li>
-          <li><a href="#">Vault</a></li>
-          <li><a href="#">Gestione Budget</a></li>
-          <li><a href="#">Perk</a></li>
-          <li><a href="#">Criptovaluta</a></li>
-          <li><a href="#">Assicurazione Smartphone</a></li>
-          <li><a href="#">Assicurazione medica internazionale</a> </li>
+          <li><a href="#">Commedia</a></li>
+          <li><a href="#">Horror</a></li>
+          <li><a href="#">Per Famiglie</a></li>
+          <li><a href="#">Avventura</a></li>
+          <li><a href="#">Poliziesco</a></li>
+          <li><a href="#">Documentari</a></li>
+          <li><a href="#">Serie TV</a> </li>
         </ul>
 
       </li>
       <li class="with-dropdown"><a href="#">Frappiflix Party</a>
         <ul class="dropdown-menu">
-          <li><a href="#">Chi siamo</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Lavora con noi</a></li>
-          <li><a href="#">Affiliati</a></li>
+          <li><a href="#">Abbonamento</a></li>
+          <li><a href="#">Promozioni</a></li>
+          <li><a href="#">ChristmasParty</a></li>
+          <li><a href="#">Aiuto</a></li>
           <li><a href="#">Contatti</a></li>
 
         </ul>
@@ -76,7 +76,7 @@
 <div class="app" id="app">
   <div class="search">
 
-    <img class="logo-netflix" src="./img/N.png" alt="">
+
 
     <select
     v-model="actualGenre"
@@ -98,7 +98,7 @@
 
     <button
     class="btn-search"
-     @click="search">search</button>
+     @click="search"><span>CERCA</span> <img class="logo-netflix" src="./img/N.png"></button>
 
   </div>
 
@@ -153,6 +153,17 @@
       </ul>
     </div>
   </div>
+
+  <!-- /* AUDIO */ -->
+  <!-- <div class="player-controller">
+    <audio class="audio-controls" controls>
+     <source
+     class="song" src="./Mariah-Carey.mp3" type="audio/mpeg"></source>
+   </audio>
+
+  </div> -->
+
+
 </div>
 
 
@@ -160,8 +171,10 @@
 
 
 
-
+<!-- ajax -->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.js'></script>
+<!-- Jquery -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
 <script src="javascript.js"></script>
   </body>
 </html>
